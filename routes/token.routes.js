@@ -1,9 +1,10 @@
-const { Router } = require("express")
+const { Router } = require('express');
+const { checkEmail, checkTokenSubscription } = require('../controllers/token.controllers')
 
-const tokenRouter = new Router()
+const tokenRouter = new Router();
 
-tokenRouter.post("/")
+tokenRouter.post("/", checkEmail, checkTokenSubscription);
 
 module.exports = {
     tokenRouter
-}
+};
