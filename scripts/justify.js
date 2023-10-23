@@ -1,4 +1,4 @@
-const { LINE_LENGTH } = require('../env.variables')
+const { LINE_LENGTH } = require('../env.variables');
 
 const spreadSpaces = (line, pivot, i, index, missingSpaces) => {
     if (i === missingSpaces) {
@@ -19,7 +19,7 @@ const spreadSpaces = (line, pivot, i, index, missingSpaces) => {
     }
   
     return spreadSpaces(line, pivot, i + 1, index * -1, missingSpaces);
-  };
+};
   
 const formatLine = line => {
     const missingSpaces = 80 - [...line].join(' ').length;
