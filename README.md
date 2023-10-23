@@ -1,4 +1,4 @@
-# Node.js Justify App
+# Node.js Justify Text App
 
 This Node.js application provides two API routes: api/token and api/justify, along with a caching system to manage the issuance of tokens and word count limitations for text justification.
 
