@@ -3,6 +3,10 @@ const { cache } = require('../cache');
 const { justifiedParagraph } = require('../scripts/justify');
 const { SECRET_KEY, DAILY_THRESHOLD } = require('../env.variables');
 
+/**
+ * @description checks whether the request has a token in its headers, and if yes, if it is valid.
+ * @description otherwise grant access to the justify logic
+ */
 const checkToken = (req, res, next) => {
     const token = req.headers['authorization'];
     if (!token) {
@@ -19,10 +23,12 @@ const checkToken = (req, res, next) => {
     });
 };
 
+/**
+ * @description checks whether the wordcount for the user has been reached, and if not, simply adds the currnt wordcount
+ * @description otherwise, asks for payment
+ */
 const updateWordCount = (req, res, next) => {
     const cachedData = cache.get(req.user.email);
-    console.log(cachedData)
-    console.log(req.user)
     const textLength = req.body.toString().length;
     if (cachedData.count + textLength > DAILY_THRESHOLD) {
         return res.status(402).json({ message: 'Email is required' });
@@ -31,6 +37,9 @@ const updateWordCount = (req, res, next) => {
     next();
 };
 
+/**
+ * @description does the text justification and then sends it to the clients
+ */
 const justifyText = (req, res) => {
     const text = req.body.toString();
     const result = justifiedParagraph(text).map(arr => arr.join(' ')).join('');
