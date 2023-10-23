@@ -20,7 +20,7 @@ const checkTokenSubscription = (req, res) => {
     const { email } = req.user;
     const isCached = cache.get(email.toString());
     if (!isCached) {
-        const token = jwt.sign({ email }, SECRET_KEY);
+        const token = jwt.sign({ email }, SECRET_KEY, { expiresIn: '24h' });
         cache.set(email.toString(), { token: token, count: 0 }, TOKEN_DURATION);
         return res.json({ message: 'Welcome !  here is your access token', data: token });
     }
