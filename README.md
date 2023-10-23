@@ -45,8 +45,13 @@ or in production mode using:
 ## Dependencies
 
 express - Fast, unopinionated, minimalist web framework for Node.js.
+
 body-parser - Node.js body parsing middleware.
+
 cors - Middleware for enabling Cross-Origin Resource Sharing.
+
 jsonwebtoken - JSON Web Token (JWT) implementation for Node.js.
+
 node-cache - A simple in-memory caching module for Node.js.
+
 nodemon - Utility that monitors for changes and automatically restarts the server.
