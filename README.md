@@ -19,6 +19,7 @@ Upon providing a valid email, the server will respond with an access token.
 This route allows users to send POST requests with a contentType of text. The request should have the following headers:
 
 Authorization: This header should contain the token received from the api/token route.
+
 Content-Type: Set to text/plain.
 The body of the request should contain the text you want to get justified. The server will return the justified text.
 
