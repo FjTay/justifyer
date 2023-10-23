@@ -8,9 +8,9 @@ This Node.js application provides two API routes: api/token and api/justify, alo
 
 This route is used to retrieve a token via a POST request. The request body should be in JSON format:
 
-{
+`{
   "email": "your email"
-}
+}`
 
 Upon providing a valid email, the server will respond with an access token.
 
@@ -32,14 +32,14 @@ Clone this repository.
 
 Install the required dependencies using the following command:
 
-npm install
+`npm install`
 
 Start the application in development mode using:
 
-npm run dev
+`npm run dev`
 or in production mode using:
 
-npm start
+`npm start`
 
 ## Dependencies
 
